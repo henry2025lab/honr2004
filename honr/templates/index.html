@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视觉形象社会认知 - 知情同意书</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="consent-form">
+            <h1>视觉形象社会认知</h1>
+            <div class="section">
+                <h2>尊敬的参与者：</h2>
+                <p>您好！我们诚挚地邀请您参与一项关于"视觉形象社会认知"的学术研究。本研究旨在探索人们在此过程中的心理反应。</p>
+                <p>在您决定是否参与本研究之前，请您务必仔细阅读以下信息。如有任何疑问，请随时向主试提出。</p>
+            </div>
+            <div class="section">
+                <h3>1. 研究程序</h3>
+                <p>本研究将在线上完成，全程约需 15-20分钟。您需要：</p>
+                <ol>
+                    <li>仔细阅读本同意书并确认参与。</li>
+                    <li>观看一系列数字形象，并仔细评估每个形象。</li>
+                    <li>根据您对每个形象的感受，完成一份简短的问卷。</li>
+                </ol>
+            </div>
+            <div class="section">
+                <h3>2. 潜在风险与不适</h3>
+                <p>本研究不包含任何具有身体或心理伤害性的程序，过程安全。整个过程不会为您带来超出日常生活的风险。</p>
+            </div>
+            <div class="section">
+                <h3>3. 获益</h3>
+                <p>您的参与将为我们理解人类感知与创造性表达提供宝贵的科学数据，推动该领域的发展。</p>
+            </div>
+            <div class="section">
+                <h3>4. 隐私与保密</h3>
+                <p>您的隐私将得到严格保护。</p>
+                <ul>
+                    <li>本研究以匿名方式进行，不会收集您的姓名、身份证号、手机号等私密信息。</li>
+                    <li>您的评价数据将仅用于整体分析，所有数据将与其它参与者的数据汇总后进行统计分析。任何可识别您个人身份的信息都不会被披露。</li>
+                    <li>所有数据将被加密存储，仅研究团队成员有权访问。</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h3>5. 自愿参与与中途退出</h3>
+                <p>您的参与是完全自愿的。</p>
+                <ul>
+                    <li>您有权在研究过程中的任何阶段，无需提供任何理由，随时选择退出。</li>
+                    <li>如果您决定退出，您已提供的数据将被立即销毁且不予使用。</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h3>6. 主试联系方式</h3>
+                <p>如您对本研究有任何疑问、顾虑，或希望在研究结束后获取研究结果，请通过以下方式联系本研究的主要负责人：</p>
+                <p>负责人： 刘畅斐</p>
+                <p>邮箱： sc42308@um.edu.mo</p>
+            </div>
+            <form action="{{ url_for('demographic') }}" method="POST">
+                <div class="consent-checkbox">
+                    <label>
+                        <input type="checkbox" name="consent" required> 我已阅读并理解上述信息，自愿参与本研究
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary">开始实验</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

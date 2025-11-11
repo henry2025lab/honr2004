@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第 {{ trial + 1 }} 轮创作</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="progress-bar">
+            <div class="progress" style="width: {{ (trial / total_trials * 100) }}%"></div>
+        </div>
+        <h2>第 {{ trial + 1 }} 轮创作</h2>
+        {% if trial == 0 %}
+        <p>接下来，您将使用并测评一款内置的AI风格图像生成工具。</p>
+        {% endif %}
+        <div class="section">
+            <p>您现在看到的是一张由该AI生成的实体图像（我们称之为‘示例图’）。请您仔细观察它。</p>
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/' + config.example_image) }}" alt="示例图" class="example-image">
+            </div>
+        </div>
+        <div class="section">
+            <p>现在想象一下：如果您要使用该AI工具来为您生成一张与‘示例图’风格和内容相似的全新图像，您会输入什么样的描述或指令？</p>
+            <p>请将您的想法填写在下方文本框中。您的描述可以包括实体的特征、图像的氛围、画面的风格等任何您认为重要的元素。</p>
+            <p><strong>请描述您会如何指令该AI，为您生成一张与示例图风格内容相似的新图像：</strong></p>
+            <form action="{{ url_for('submit_instruction') }}" method="POST">
+                <input type="hidden" name="trial" value="{{ trial }}">
+                <div class="form-group">
+                    <textarea name="instruction" placeholder="描述实体的特征、图像的氛围、画面的风格等..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">提交指令并生成图像</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图像评估 - 第 {{ trial + 1 }} 轮</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- 固定图片 -->
+    <div class="fixed-image-container">
+        <img src="{{ url_for('static', filename='images/' + config.output_image) }}" alt="生成的图像" class="fixed-image">
+        <div class="fixed-image-caption">您生成的图像</div>
+    </div>
+    <div class="container">
+        <div class="progress-bar">
+            <div class="progress" style="width: {{ ((trial + 0.5) / total_trials * 100) }}%"></div>
+        </div>
+        <div class="evaluation-content">
+            <h2>第 {{ trial + 1 }} 轮评估</h2>
+            <div class="result-section">
+                <p>这是基于您提供的指令所生成的图像。现在，请您继续完成后续评估。</p>
+                <p>请根据观看您生成的图片的体验，在以下属性间进行选择（1=完全左端属性，7=完全右端属性）。</p>
+            </div>
+            <form action="{{ url_for('submit_evaluation') }}" method="POST">
+                <input type="hidden" name="trial" value="{{ trial }}">
+                <div class="evaluation-questions">
+                    {% set questions = [
+                        ("您感知到图片中的实体是：", "无生命的", "有生命的"),
+                        ("您感知到图片中的实体是：", "正常的", "奇怪的"),
+                        ("您感知到图片中的实体是：", "讨人喜欢的", "令人厌恶的"),
+                        ("您感知到图片中的实体是：", "具有人性的", "不具有人性的"),
+                        ("您感知到图片中的实体是：", "不怪诞的", "怪诞的"),
+                        ("您感知到图片中的实体是：", "会意外伤害我的", "不会意外伤害我的"),
+                        ("您感知到图片中的实体是：", "无寿命限制的", "会死亡的"),
+                        ("您感知到图片中的实体是：", "令人安心的", "令人恐惧的"),
+                        ("您感知到图片中的实体是：", "没有吸引力的", "有吸引力的"),
+                        ("您感知到图片中的实体是：", "会意外伤害人类的", "不会意外伤害人类的")
+                    ] %}
+                    {% for i in range(10) %}
+                    <div class="question-group">
+                        <p class="question-text">{{ questions[i][0] }}</p>
+                        <div class="likert-scale">
+                            <div class="scale-labels">
+                                <span>{{ questions[i][1] }}</span>
+                                <span>介于两者之间</span>
+                                <span>{{ questions[i][2] }}</span>
+                            </div>
+                            <div class="scale-options">
+                                {% for j in range(1, 8) %}
+                                <label class="scale-option">
+                                    <input type="radio" name="q{{ config.questions[i] }}" value="{{ j }}" required>
+                                    <span class="option-number">{{ j }}</span>
+                                </label>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    {% if trial == total_trials - 1 %}
+                    完成实验
+                    {% else %}
+                    继续下一轮
+                    {% endif %}
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

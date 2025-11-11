@@ -1,0 +1,556 @@
+/* 重置样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+/* 容器样式 */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* 进度条 */
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: #4CAF50;
+    transition: width 0.3s ease;
+}
+
+/* 按钮样式 */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.btn-primary {
+    background-color: #2196F3;
+}
+
+.btn-primary:hover {
+    background-color: #1976D2;
+}
+
+.btn-large {
+    padding: 15px 30px;
+    font-size: 18px;
+    margin: 10px;
+}
+
+/* 表单样式 */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 8px;
+}
+
+/* 图片容器 */
+.image-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.example-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* 固定图片容器 */
+.fixed-image-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 200px;
+    z-index: 1000;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    border: 2px solid #2196F3;
+}
+
+.fixed-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+.fixed-image-caption {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #666;
+    font-weight: bold;
+}
+
+/* 加载页面 */
+.loading-screen {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.loading-progress {
+    margin: 30px 0;
+    text-align: left;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.progress-step {
+    padding: 8px 0;
+    border-left: 3px solid #e0e0e0;
+    padding-left: 15px;
+    margin-bottom: 5px;
+    color: #999;
+    transition: all 0.3s ease;
+}
+
+.progress-step.active {
+    color: #333;
+    border-left-color: #4CAF50;
+    font-weight: bold;
+}
+
+.loading-animation {
+    margin: 30px 0;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #4CAF50;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 评估问题 - 修复手机显示 */
+.evaluation-questions {
+    margin: 30px 0;
+}
+
+.question-group {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid #2196F3;
+}
+
+.question-text {
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.likert-scale {
+    margin-top: 15px;
+}
+
+.scale-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.scale-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px; /* 添加间距 */
+    flex-wrap: nowrap; /* 禁止换行 */
+    overflow-x: auto; /* 允许水平滚动 */
+    padding-bottom: 10px;
+}
+
+.scale-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    flex-shrink: 0; /* 禁止缩小 */
+    min-width: 40px; /* 最小宽度 */
+}
+
+.scale-option input[type="radio"] {
+    margin-bottom: 5px;
+    transform: scale(1.2); /* 放大单选按钮 */
+}
+
+.option-number {
+    font-size: 12px;
+    color: #666;
+    font-weight: bold;
+}
+
+/* 同意书样式 */
+.consent-form {
+    line-height: 1.8;
+}
+
+.section {
+    margin-bottom: 25px;
+}
+
+.section h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.section h3 {
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+.section ul, .section ol {
+    margin-left: 25px;
+    margin-bottom: 15px;
+}
+
+.section li {
+    margin-bottom: 8px;
+}
+
+.consent-checkbox {
+    margin: 30px 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #4CAF50;
+}
+
+.consent-checkbox label {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.consent-checkbox input[type="checkbox"] {
+    margin-right: 15px;
+    transform: scale(1.2);
+}
+
+/* 参与者指令框 */
+.instruction-box {
+    background: #e3f2fd;
+    border: 1px solid #2196F3;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* 分组选择 */
+.group-selection {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.group-options {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.group-option {
+    padding: 30px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.group-option:hover {
+    border-color: #2196F3;
+    background-color: #f8f9fa;
+}
+
+.group-option input[type="radio"] {
+    display: none;
+}
+
+.group-option.selected {
+    border-color: #2196F3;
+    background-color: #e3f2fd;
+}
+
+.group-label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.group-description {
+    font-size: 14px;
+    color: #666;
+}
+
+/* 感谢页面 */
+.thank-you {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.thank-you h1 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.contact-info {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* 响应式设计 - 重点修复手机显示 */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 15px;
+        margin: 10px auto;
+    }
+    
+    .fixed-image-container {
+        position: relative;
+        width: 100%;
+        top: auto;
+        right: auto;
+        margin-bottom: 20px;
+    }
+    
+    /* 重点修复：确保1-7选项在同一行 */
+    .scale-options {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap; /* 禁止换行 */
+        overflow-x: auto; /* 允许水平滚动 */
+        gap: 2px; /* 减少间距 */
+        padding: 10px 0;
+        -webkit-overflow-scrolling: touch; /* 平滑滚动 */
+    }
+    
+    .scale-option {
+        flex: 1; /* 平均分配空间 */
+        min-width: 35px; /* 更小的最小宽度 */
+        padding: 5px 2px;
+    }
+    
+    .scale-option input[type="radio"] {
+        transform: scale(1.1); /* 稍微缩小 */
+        margin-bottom: 3px;
+    }
+    
+    .option-number {
+        font-size: 10px; /* 更小的字体 */
+    }
+    
+    .scale-labels {
+        font-size: 12px; /* 更小的标签字体 */
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .scale-labels span {
+        flex: 1;
+        text-align: center;
+        min-width: 80px;
+    }
+    
+    .group-options {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .group-option {
+        width: 100%;
+        max-width: 300px;
+        padding: 20px;
+    }
+    
+    .radio-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .question-group {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .question-text {
+        font-size: 14px;
+    }
+}
+
+/* 超小屏幕优化 */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px 15px;
+    }
+    
+    /* 超小屏幕的进一步优化 */
+    .scale-options {
+        gap: 1px;
+        padding: 5px 0;
+    }
+    
+    .scale-option {
+        min-width: 30px;
+        padding: 3px 1px;
+    }
+    
+    .scale-option input[type="radio"] {
+        transform: scale(1);
+    }
+    
+    .option-number {
+        font-size: 9px;
+    }
+    
+    .scale-labels {
+        font-size: 11px;
+    }
+    
+    .scale-labels span {
+        min-width: 60px;
+    }
+    
+    .section h2 {
+        font-size: 1.2em;
+    }
+    
+    .section h3 {
+        font-size: 1.1em;
+    }
+    
+    .likert-scale {
+        margin-top: 10px;
+    }
+}
+
+/* 横屏手机优化 */
+@media (max-width: 768px) and (orientation: landscape) {
+    .scale-options {
+        gap: 8px; /* 横屏时有更多空间 */
+    }
+    
+    .scale-option {
+        min-width: 45px;
+    }
+    
+    .option-number {
+        font-size: 11px;
+    }
+}
+
+/* 防止文本选择 */
+.scale-option {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
