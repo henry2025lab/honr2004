@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI生成中</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        setTimeout(function() {
+            window.location.href = "{{ next_url }}";
+        }, 5000);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="loading-screen">
+            <h2>AI图像生成中...</h2>
+            <div class="loading-progress">
+                <div class="progress-step active">1. 正在连接AI服务器... (5%)</div>
+                <div class="progress-step">2. 正在分析图像特征... (25%)</div>
+                <div class="progress-step">3. 正在生成3D模型... (50%)</div>
+                <div class="progress-step">4. 正在渲染光影效果... (75%)</div>
+                <div class="progress-step">5. 生成完成！ (100%)</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const steps = document.querySelectorAll('.progress-step');
+        let currentStep = 0;
+        
+        const progressInterval = setInterval(() => {
+            if (currentStep > 0) {
+                steps[currentStep - 1].classList.remove('active');
+            }
+            if (currentStep < steps.length) {
+                steps[currentStep].classList.add('active');
+                currentStep++;
+            } else {
+                clearInterval(progressInterval);
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
